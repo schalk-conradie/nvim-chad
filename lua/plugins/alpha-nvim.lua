@@ -26,7 +26,7 @@ return {
         local display_path = p.path:gsub(vim.fn.expand "$HOME", "~")
 
         -- Generate button: [1] Project Name (Path)
-        local button = startify.button(tostring(i), "󱔗  " .. p.title .. " (" .. display_path .. ")", function()
+        local button = startify.button(tostring(i + 10), "󱔗  " .. p.title .. " (" .. display_path .. ")", function()
           project_utils.change_project_dir(p.path, "cd")
           vim.cmd "edit ."
         end)

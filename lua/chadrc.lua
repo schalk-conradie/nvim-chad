@@ -10,9 +10,9 @@ M.base46 = {
   transparency = true,
 }
 
-
 M.ui = {
   tabufline = {
+    enabled = false,
     lazyload = false,
   },
 }

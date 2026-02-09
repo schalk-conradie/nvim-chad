@@ -1,14 +1,5 @@
 return {
   {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      spec = {
-        { "<leader>9", group = "99 Agent", icon = "🤖" },
-      },
-    },
-  },
-  {
     "ThePrimeagen/99",
     event = "VeryLazy",
     config = function()
