@@ -3,11 +3,12 @@ return {
   ---@module 'oil'
   ---@type oil.SetupOpts
   opts = {
-    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" }),
-
     view_options = {
       show_hidden = true,
     },
+  },
+  keys = {
+    { "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
   },
   -- Optional dependencies
   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
