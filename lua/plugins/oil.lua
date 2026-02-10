@@ -8,7 +8,25 @@ return {
     },
   },
   keys = {
-    { "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
+    {
+      "-",
+      function()
+        local cwd = vim.fn.getcwd()
+        -- Handle PowerShell provider paths like "Microsoft.PowerShell.Core\FileSystem::\\Mac\Code"
+        if cwd:match("^Microsoft%.PowerShell%.Core") then
+          -- Extract the UNC path part
+          local unc_path = cwd:match("::(.+)$")
+          if unc_path then
+            -- Normalize UNC path for Oil
+            local oil_path = unc_path:gsub("\\", "/")
+            require("oil").open(oil_path)
+            return
+          end
+        end
+        require("oil").open(cwd)
+      end,
+      desc = "Open parent directory",
+    },
   },
   -- Optional dependencies
   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
