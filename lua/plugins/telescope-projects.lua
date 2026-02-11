@@ -11,7 +11,14 @@ return {
       defaults = {
         -- Telescope defaults
         path_display = { "truncate" },
+        file_ignore_patterns = { "%.git/" },
       },
+      pickers = {
+        find_files = {
+          hidden = true,
+        },
+      },
+      hidden_files = true,
       extensions = {
         project = {
           base_dirs = {
@@ -19,6 +26,7 @@ return {
             { path = "~/Code/work", max_depth = 4 },
             { path = "~/Code/personal/", max_depth = 4 },
           },
+          defaults = {},
           hidden_files = false,
           theme = "dropdown",
           order_by = "recent",

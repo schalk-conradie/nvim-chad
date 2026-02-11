@@ -14,17 +14,24 @@ local options = {
     -- Python
     python = { "black", "isort" },
     -- Web
-    html = { "prettier" },
-    css = { "prettier" },
-    scss = { "prettier" },
-    json = { "prettier" },
-    yaml = { "prettier" },
-    markdown = { "prettier" },
+    html = { "biome" },
+    css = { "biome" },
+    scss = { "biome" },
+    json = { "biome" },
+    yaml = { "biome" },
+    markdown = { "biome" },
   },
 
   format_on_save = {
     timeout_ms = 500,
     lsp_fallback = true,
+  },
+
+  formatters = {
+    biome = {
+      -- Use the = syntax to ensure the argument is parsed correctly
+      args = { "check", "--write", "--format-with-errors=true", "--stdin-file-path", "$FILENAME" },
+    },
   },
 }
 
